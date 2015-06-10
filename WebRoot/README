@@ -1,0 +1,6 @@
+Core Server Framework
+
+1.webservice:jax-ws
+2.log:slf4j+logback
+3.ioc:spring
+4.mongo:mongo-java-driver+mongo-java-orm(google mjorm mit)

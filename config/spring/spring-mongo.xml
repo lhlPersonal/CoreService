@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="  
+       http://www.springframework.org/schema/beans  
+       http://www.springframework.org/schema/beans/spring-beans.xsd  
+       ">
+	<!-- Mongo object <bean id="mongo" class="com.googlecode.mjorm.spring.MongoFactoryBean"> 
+		<property name="uri" value="mongodb://localhost/dbName" /> <property name="closeOnDestroy" 
+		value="true" /> </bean> Annotations ObjectMapper <bean id="mongoObjectMapper" 
+		class="com.googlecode.mjorm.spring.AnnotationsDescriptorObjectMapperFactoryBean"> 
+		<property name="annotatedClasses"> <list> <value>com.googlecode.mjorm.Person</value> 
+		<value>com.googlecode.mjorm.Address</value> </list> </property> </bean> City 
+		DAO <bean id="cityDao" class="com.company.MongoDBCityDao"> <property name="mongo" 
+		ref="mongo" /> <property name="objectMapper" ref="mongoObjectMapper" /> <property 
+		name="dbName" value="dbName" /> </bean> -->
+	<bean id="dbModule" class="com.dview.coreServer.module.DBModule"
+		init-method="run" />
+</beans>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="  
+       http://www.springframework.org/schema/beans  
+       http://www.springframework.org/schema/beans/spring-beans.xsd  
+       ">
+	<bean id="placeholderConfig"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>classpath:properties/conn.properties</value>
+		</property>
+	</bean>
+
+	<import resource="spring-mongo.xml" />
+	<import resource="spring-module.xml" />
+	<import resource="spring-dao.xml" />
+	<import resource="spring-webservice.xml" />
+	<import resource="spring-publish.xml" />
+</beans>

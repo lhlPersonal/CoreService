@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="  
+       http://www.springframework.org/schema/beans  
+       http://www.springframework.org/schema/beans/spring-beans.xsd  
+       ">
+
+	<bean id="coreSvr" class="com.dview.coreServer.util.ServicePublish">
+		<constructor-arg index="0">
+			<map>
+				<entry key="${userService_url}" value-ref="userSvr" />
+				<entry key="${devService_url}" value-ref="devSvr" />
+			</map>
+		</constructor-arg>
+
+		<constructor-arg index="1" ref="coreModule">
+		</constructor-arg>
+	</bean>
+</beans>
