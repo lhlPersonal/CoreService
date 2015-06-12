@@ -3,6 +3,7 @@ package com.dview.coreServer.dao.impl;
 import org.slf4j.Logger;
 
 import com.dview.coreServer.module.DBModule;
+import com.dview.coreServer.util.CoreSvrUtil;
 import com.googlecode.mjorm.MongoDao;
 import com.mongodb.DB;
 import com.mongodb.DBCollection;
@@ -32,6 +33,6 @@ public class CommonDAO {
 	}
 
 	public Logger getLogger() {
-		return com.dview.coreServer.util.CoreSvrUtil.getLogger();
+		return CoreSvrUtil.getLogger();
 	}
 }

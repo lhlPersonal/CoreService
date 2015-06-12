@@ -11,6 +11,7 @@ import java.text.MessageFormat;
 
 import com.dview.coreServer.util.Constant;
 import com.dview.coreServer.util.CoreSvrUtil;
+import com.dview.coreServer.util.DVEnum;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
@@ -25,20 +26,20 @@ import com.sun.net.httpserver.spi.HttpServerProvider;
  * 
  */
 public class HttpModule extends BaseModule {
+	private HttpServer httpserver;
 
 	// 启动服务，监听来自客户端的请求
 	public void httpserverService() {
 		HttpServerProvider provider = HttpServerProvider.provider();
-		HttpServer httpserver;
 		try {
 			httpserver = provider.createHttpServer(new InetSocketAddress(5722),
 					Constant.MAX_PROBE);
 			// 监听端口5722,能同时接受100个请求
-			httpserver.createContext("/dlink",new MyHttpHandler());
+			httpserver.createContext("/dlink", new MyHttpHandler());
 			httpserver.setExecutor(null);
 			httpserver.start();
-			
-			CoreSvrUtil.getLogger().info("server started");
+
+			CoreSvrUtil.getLogger().info("start to listener");
 
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -85,6 +86,11 @@ public class HttpModule extends BaseModule {
 
 	@Override
 	public void stop() {
-
+		try {
+			this.httpserver.stop(0);
+			state = DVEnum.ModuleState.Stop;
+		} catch (Exception ex) {
+			state = DVEnum.ModuleState.Error;
+		}
 	}
 }

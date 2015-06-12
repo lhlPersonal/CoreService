@@ -4,3 +4,16 @@ Core Server Framework
 2.log:slf4j+logback
 3.ioc:spring
 4.mongo:mongo-java-driver+mongo-java-orm(google mjorm mit)
+
+
+logback开发出来就是为了替代log4j的，它和log4j都是出自同一个开发者。
+logback同log4j相比具有众多优势。下面列出一部分：
+更快的实现
+自动重新装载日志配置文件
+更好的过滤器（filter）
+自动压缩归档的日志文件
+堆栈跟踪里包括了Java包（jar文件）的信息
+自动删除旧日志归档文件
+
+slf4j是一个日志框架，不管上层用什么日志实现，上层可以随意切换具体的实现，需要做的就是写一个用来控制日志输出的配置文件。
+配置文件在log4j里通常叫做log4j.xml，在logback里是logback.xml，或者，在测试环境里叫做logback-test.xml，放在classes目录下即可。

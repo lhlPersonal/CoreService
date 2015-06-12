@@ -57,7 +57,11 @@ public class DBModule extends BaseModule {
 
 	@Override
 	public void stop() {
-		state = DVEnum.ModuleState.Stop;
-		// TODO Auto-generated method stub
+		try {
+			db.getMongo().close();
+			state = DVEnum.ModuleState.Stop;
+		} catch (Exception e) {
+			state = DVEnum.ModuleState.Error;
+		}
 	}
 }

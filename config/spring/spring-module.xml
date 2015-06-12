@@ -8,7 +8,7 @@
 	<bean id="httpModule" class="com.dview.coreServer.module.HttpModule">
 	</bean>
 	<bean id="coreModule" class="com.dview.coreServer.module.CoreModule"
-		init-method="run">
+		init-method="run" destroy-method="stop">
 		<property name="modules">
 			<list>
 				<ref bean="dbModule" />

@@ -50,7 +50,7 @@ public class CoreSvrUtil {
 
 		return 0;
 	}
-	
+
 	public static boolean IsNullOrEmpty(String arg) {
 		return Objects.isNull(arg) || arg.trim().isEmpty();
 	}
